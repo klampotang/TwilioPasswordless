@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('user/validate/', 'UserController@validate');
+Route::post('user/auth/', 'UserController@auth');
