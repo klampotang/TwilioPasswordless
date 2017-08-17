@@ -24,7 +24,6 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-
         parent::boot();
     }
 
@@ -38,7 +37,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
-
+        require app_path('routes/web.php');
         //
     }
 
@@ -70,7 +69,5 @@ class RouteServiceProvider extends ServiceProvider
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
 
-        Route::post('user/validate/', 'UserController@validate');
-        Route::post('user/auth/', 'UserController@auth');
     }
 }
