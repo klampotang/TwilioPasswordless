@@ -32,14 +32,19 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function map()
+    public function map(Router $router)
     {
+        //$router->group(['namespace' => $this->namespace], function ($router) {              require app_path('Http/routes.php');
+        //});
         $this->mapApiRoutes();
-
         $this->mapWebRoutes();
-        require app_path('routes/web.php');
-        //
     }
+    //public function map()
+    //{
+    //    $this->mapApiRoutes();
+    //    $this->mapWebRoutes();
+        //
+    //}
 
     /**
      * Define the "web" routes for the application.
