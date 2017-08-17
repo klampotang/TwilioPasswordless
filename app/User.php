@@ -27,4 +27,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function validateToken($token)
+    {
+      $validToken = Session::get('token');
+      if($token == $validToken) {
+        Session::forget('token');
+        Auth::login($this);
+        return true;
+      } else {
+        return false;
+      }
+    }
+
 }
